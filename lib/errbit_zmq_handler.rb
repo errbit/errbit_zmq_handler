@@ -1,5 +1,4 @@
 # encoding: utf-8
-require 'yajl'
 require 'dripdrop'
 
 Thread.abort_on_exception = true

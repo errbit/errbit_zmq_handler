@@ -16,7 +16,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "ffi", ">= 0"
   s.add_dependency "dripdrop", ">= 0.10.0.beta2"
-  s.add_dependency "yajl-ruby", ">= 0"
 
   s.add_development_dependency 'rspec', '>= 2.5.0'
 

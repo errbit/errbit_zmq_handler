@@ -1,0 +1,32 @@
+= Errbit 0MQ Handler
+
+Errbit notifier extension for handling notices over 0mq socket.
+  
+  One should use this library to listen to Hoptoad 0MQ Notifier powered app (https://github.com/oruen/hoptoad_zmq_notifier)
+
+== Installation
+
+Install zeromq 2.1 from http://www.zeromq.org or your favorite package system.
+
+Get Errbit https://github.com/oruen/errbit (my fork is more stable and featured :)
+
+Install the gem:
+
+  gem install errbit_zmq_handler
+
+== Usage
+
+Config 0MQ handler by defining it's address it <tt>config/initializers/errbit_zmq_handler.rb</tt>:
+  
+  ErrbitZmqHandler.configure do |config|
+    # Address to bind to listen exception notifications 
+    config.uri = "tcp://127.0.0.1:9998"
+  end
+
+Start listening to notices:
+  ErrbitZmqHandler.handler.start!
+
+== License
+
+HoptoadZmqNotifier is Copyright © 2011 oruen. It is free software, and may be redistributed under the terms specified in the MIT-LICENSE file.
+

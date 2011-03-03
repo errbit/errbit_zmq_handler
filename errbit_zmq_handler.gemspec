@@ -5,7 +5,7 @@ require "errbit_zmq_handler/version"
 Gem::Specification.new do |s|
   s.name        = "errbit_zmq_handler"
   s.version     = ErrbitZmqHandler::VERSION
-  s.platform    = Gem::Platform::RUBY
+  s.platform    = RUBY_PLATFORM[/java/] || Gem::Platform::RUBY
   s.authors     = ["Nick Recobra"]
   s.email       = ["oruenu@gmail.com"]
   s.homepage    = ""
@@ -14,8 +14,12 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "errbit_zmq_handler"
 
-  s.add_dependency "ffi", ">= 0"
-  s.add_dependency "yajl-ruby", "> 0"
+  if s.platform.to_s == "java"
+    s.add_dependency "json", ">= 1.5"
+  else
+    s.add_dependency "ffi", ">= 0"
+    s.add_dependency "yajl-ruby", "> 0"
+  end
   s.add_dependency "dripdrop", ">= 0.10.0.beta2"
   s.add_dependency "daemon-spawn", ">= 0.4.0"
 

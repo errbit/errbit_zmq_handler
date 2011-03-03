@@ -7,6 +7,10 @@ One should use this library to listen to Hoptoad 0MQ Notifier powered app (https
 Advantage of using Errbit 0MQ Handler is async notices processing. You could fire notices from the client and not depend on
 timeouts, service unavailability and services errors.
 
+== Requirements
+
+Ruby 1.9 or JRuby. ffi-rzmq is not working with MRI (and REE) 1.8.7.
+
 == Installation
 
 Install zeromq 2.1 from http://www.zeromq.org or your favorite package system.

@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Nick Recobra"]
   s.email       = ["oruenu@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Errbit handler for 0MQ notices}
+  s.description = %q{Errbit extension providing handler for notices transfered via 0MQ}
 
   s.rubyforge_project = "errbit_zmq_handler"
 

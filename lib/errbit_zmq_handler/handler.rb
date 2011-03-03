@@ -8,7 +8,9 @@ module ErrbitZmqHandler
       exceptions.on_recv do |messages|
         xml = messages.first.copy_out_string
         puts "[#{Time.now}] got notice"
-        Notice.from_xml(xml)        
+        start = Time.now
+        Notice.from_xml(xml)
+        puts "Notice saved in #{Time.now - start} seconds\n\n"
       end
     end
   end

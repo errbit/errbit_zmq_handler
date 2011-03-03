@@ -2,7 +2,10 @@
 
 Errbit notifier extension for handling notices over 0mq socket.
   
-  One should use this library to listen to Hoptoad 0MQ Notifier powered app (https://github.com/oruen/hoptoad_zmq_notifier)
+One should use this library to listen to Hoptoad 0MQ Notifier powered app (https://github.com/oruen/hoptoad_zmq_notifier)
+
+Advantage of using Errbit 0MQ Handler is async notices processing. You could fire notices from the client and not depend on
+timeouts, service unavailability and services errors.
 
 == Installation
 
@@ -23,8 +26,15 @@ Config 0MQ handler by defining it's address it <tt>config/initializers/errbit_zm
     config.uri = "tcp://127.0.0.1:9998"
   end
 
-Start listening to notices:
-  ErrbitZmqHandler.handler.start!
+Starting handler daemon:
+  APP_ROOT=/path/to/app/root RAILS_ENV=production errbit_zmq_handler start
+
+Stop handler daemon:
+  APP_ROOT=/path/to/app/root RAILS_ENV=production errbit_zmq_handler stop
+
+Restart handler daemon:
+  APP_ROOT=/path/to/app/root RAILS_ENV=production errbit_zmq_handler restart
+
 
 == License
 

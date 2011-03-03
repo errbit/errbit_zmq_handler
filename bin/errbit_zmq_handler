@@ -9,6 +9,8 @@ module ErrbitZmqHandler
     def start(args)
       puts "[#{Time.now}] Starting"
       require File.expand_path('config/environment', working_dir)
+      Rails.logger = ActiveSupport::BufferedLogger.new log_file
+      Mongoid.logger = Rails.logger
       ErrbitZmqHandler.handler.start!
     end
   

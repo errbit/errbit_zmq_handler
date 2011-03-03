@@ -7,7 +7,7 @@ module ErrbitZmqHandler
 
       exceptions.on_recv do |messages|
         xml = messages.first.copy_out_string
-        Rails.logger.info "Recieved: #{xml}"
+        puts "[#{Time.now}] got notice"
         Notice.from_xml(xml)        
       end
     end

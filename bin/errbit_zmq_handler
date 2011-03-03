@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+app_root = ENV["APP_ROOT"] || "."
+
+require 'daemon_spawn'
+
+module ErrbitZmqHandler
+  class Daemon < DaemonSpawn::Base
+    def start(args)
+      puts "[#{Time.now}] Starting"
+      require File.expand_path('config/environment', working_dir)
+      ErrbitZmqHandler.handler.start!
+    end
+  
+    def stop
+      puts "[#{Time.now}] Shutting down"
+    end
+  end
+end
+
+ErrbitZmqHandler::Daemon.spawn!(:log_file => "#{app_root}/log/errbit_zmq_handler.log",
+                                :pid_file => "#{app_root}/tmp/pids/errbit_zmq_handler.pid",
+                                :sync_log => true,
+                                :singleton => true,
+                                :working_dir => app_root)

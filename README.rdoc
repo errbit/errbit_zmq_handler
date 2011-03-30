@@ -15,7 +15,7 @@ Ruby 1.9 or JRuby. ffi-rzmq is not working with MRI (and REE) 1.8.7.
 
 Install zeromq 2.1 from http://www.zeromq.org or your favorite package system.
 
-Get Errbit https://github.com/oruen/errbit (my fork is more stable and featured :)
+Get Errbit https://github.com/jdpace/errbit
 
 Install the gem:
 

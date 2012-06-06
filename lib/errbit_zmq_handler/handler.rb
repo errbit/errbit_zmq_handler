@@ -11,7 +11,7 @@ module ErrbitZmqHandler
         xml = messages.first.copy_out_string
         puts "[#{Time.now}] got notice"
         start = Time.now
-        Notice.from_xml(xml)
+        ErrorReport.new(xml).generate_notice!
         puts "Notice saved in #{Time.now - start} seconds\n\n"
       end
     end
